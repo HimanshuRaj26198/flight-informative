@@ -1,0 +1,8 @@
+.searchpage_container {
+    /* height: 100vh; */
+}
+
+.flight_details_container {
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    padding: 8px;
+}

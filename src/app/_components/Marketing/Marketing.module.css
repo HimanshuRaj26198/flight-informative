@@ -1,0 +1,15 @@
+.third_sec {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 3% 0;
+    gap: 20px;
+}
+
+.marketing_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
