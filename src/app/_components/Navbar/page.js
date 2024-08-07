@@ -23,7 +23,6 @@ const Navbar = () => {
                             <li className={Style.menu_option} > <Link href="/search-airports" >Search Airports</Link> </li>
                             <li className={Style.menu_option} > <Link href="/search-airlines" >Search Airlines</Link> </li>
                             <li className={Style.menu_option} > <Link href="/about-us" >About Us</Link> </li>
-                            <li className={Style.menu_option} > Contact Us </li>
                         </ul>
                     </div>
                     <div className={Style.hamburger_container} >
@@ -31,12 +30,11 @@ const Navbar = () => {
 
                         <div style={{ height: hamburgerEnabled ? "fit-content" : "0%" }} className={Style.hamburger}>
                             <ul className={Style.menu_list}>
-                                <li className={Style.menu_option} > Flights </li>
-                                <li className={Style.menu_option} > Fare Comparison </li>
-                                <li className={Style.menu_option} > Search Airports </li>
-                                <li className={Style.menu_option} > Search Airlines </li>
-                                <li className={Style.menu_option} > About Us </li>
-                                <li className={Style.menu_option} > Contact Us </li>
+                                <li className={Style.menu_option} > <Link href="/" >Flights</Link> </li>
+                                <li className={Style.menu_option} > <Link href="/fare-comparison" >Fare Comparison</Link> </li>
+                                <li className={Style.menu_option} > <Link href="/search-airports" >Search Airports</Link> </li>
+                                <li className={Style.menu_option} > <Link href="/search-airlines" >Search Airlines</Link> </li>
+                                <li className={Style.menu_option} > <Link href="/about-us" >About Us</Link> </li>
                             </ul>
                         </div>
                     </div>
