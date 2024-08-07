@@ -66,6 +66,7 @@
     align-items: flex-start;
     height: fit-content;
     width: 30%;
+    transform: 1s ease;
 }
 
 .flights_container {
@@ -139,17 +140,7 @@
     font-weight: 700;
 }
 
-@media screen and (max-width: 768px) {
 
-    .filter_container,
-    .flights_container {
-        flex: 1 1 100%;
-    }
-
-    .inner_container {
-        padding: 4% 2%;
-    }
-}
 
 .price_info {
     display: flex;
@@ -191,12 +182,8 @@
 
     position: relative;
     background-color: rgba(0, 0, 0, 0.3);
-    /* opacity: 80%; */
     min-width: 200px;
     min-height: 100px;
-    /* background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-     */
-
     object-fit: cover;
     background-size: contain;
     display: flex;
@@ -206,11 +193,11 @@
 }
 
 .form_div {
+    display: flex;
     background-color: white;
     width: 80%;
     height: 50px;
     border-radius: 30px;
-    display: flex;
     align-items: center;
     padding: 10px 12px;
 }
@@ -318,4 +305,49 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.filter_action_btn {
+    display: none;
+    border: 0.8px solid rebeccapurple;
+    font-weight: 550;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+
+    .filter_container,
+    .flights_container {
+        flex: 1 1 100%;
+    }
+
+    .inner_container {
+        padding: 4% 2%;
+    }
+
+    .filter_action_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 4px 3px;
+    }
+
+    .form_div {
+        display: none;
+    }
+
+    .filter_container {
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .filter_parent {
+        padding: 10px 5px;
+    }
+
 }

@@ -3,7 +3,7 @@ import Style from "./FlightSearch.module.css";
 import airlines from "../../../../lib/data/airlines.json";
 import airportsDB from "../../../../lib/data/airports.json";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/_components/LoadingComponent/page";
 const Flights = ({ params, searchParams }) => {
 
@@ -17,6 +17,7 @@ const Flights = ({ params, searchParams }) => {
         { name: "1 Stop", enabled: false }
     ]);
 
+    const filterContainerRef = useRef(null);
     const [priceRange, setPriceRange] = useState(0);
     const applyFilter = () => {
         popularFilters.forEach(a => {
@@ -37,6 +38,7 @@ const Flights = ({ params, searchParams }) => {
 
     let filterLength = 5;
     let [flightList, setFlightList] = useState([]);
+    const [filterDisplay, setFilterDisplay] = useState(false);
     let query = {
         "currencyCode": "INR",
         "originDestinations": [
@@ -190,7 +192,10 @@ const Flights = ({ params, searchParams }) => {
         <div className={Style.searchpage_container} >
             <div className={Style.main_container} >
                 <div className={Style.inner_container} >
-                    <div className={Style.filter_container} >
+                    <div onClick={() => { if (!filterDisplay) { document.getElementById("filter_container_id").style.height = "fit-content"; document.getElementById("filter_container_id").style.padding = "20px"; setFilterDisplay(true) } else { document.getElementById("filter_container_id").style.height = "0"; document.getElementById("filter_container_id").style.padding = "0"; setFilterDisplay(false) } }} className={Style.filter_action_btn} >
+                        <p> Select Filters ↓</p>
+                    </div>
+                    <div id="filter_container_id" className={Style.filter_container} >
                         <div className={Style.filter_parent} >
                             <div className={Style.populae_filter} >
                                 <p className={Style.filter_heading} >Popular Filters</p>

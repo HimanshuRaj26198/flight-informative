@@ -159,7 +159,7 @@ const SearchForm = () => {
             <div className={Style.toggle_button} >
                 {
                     tripTypes.map((a, i) => {
-                        return <div onClick={() => toggleType(i)} style={{ boxShadow: a.active ? "inset 0px 0px 3px 2px rgba(0, 0, 0, 0.3)" : "" }} className={Style.toggle_btn} > <p>{a.name}</p> </div>
+                        return <div key={i} onClick={() => toggleType(i)} style={{ boxShadow: a.active ? "inset 0px 0px 3px 2px rgba(0, 0, 0, 0.3)" : "" }} className={Style.toggle_btn} > <p>{a.name}</p> </div>
                     })
                 }
             </div>
@@ -171,8 +171,8 @@ const SearchForm = () => {
                     {fromSuggestionVisible && <div ref={fromDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
-                                filteredFromAirports && filteredFromAirports.map(a => {
-                                    return <li onClick={() => handleSelection("from", a)} >
+                                filteredFromAirports && filteredFromAirports.map((a, i) => {
+                                    return <li key={i} onClick={() => handleSelection("from", a)} >
                                         <div className={Style.suggestion_item} >
                                             <span className={Style.airport_code} > {a.iata}  </span>
                                             <span className={Style.airport_loc} >
@@ -195,8 +195,8 @@ const SearchForm = () => {
                     {toSuggestionVisible && <div ref={toDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
-                                filteredToAirports && filteredToAirports.map(a => {
-                                    return <li onClick={() => handleSelection("to", a)} >
+                                filteredToAirports && filteredToAirports.map((a, i) => {
+                                    return <li key={i} onClick={() => handleSelection("to", a)} >
                                         <div className={Style.suggestion_item} >
                                             <span className={Style.airport_code} >
                                                 {a.iata}
