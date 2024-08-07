@@ -18,6 +18,8 @@ const SearchForm = () => {
     const toDate = useRef("");
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const [selectedType, setSelectedType] = useState("One-Way");
+    const [tripTypes, setTypes] = useState([{ name: "One-Way", active: true }, { name: "Round Trip", active: false }])
 
 
     const handleSelection = (action, value) => {
@@ -75,7 +77,10 @@ const SearchForm = () => {
 
         };
 
-
+        //setting today Dtae
+        let newDate = new Date();
+        fromDate.current.value = newDate.toISOString().split('T')[0];
+        console.log(newDate, "Current Date");
 
 
 
@@ -135,13 +140,34 @@ const SearchForm = () => {
         }
     }
 
+    const toggleType = (index) => {
+        let arr = tripTypes.map((a, i) => {
+            if (index === i) {
+                a.active = true;
+                setSelectedType(a.name)
+            } else {
+                a.active = false;
+            };
+            return a;
+        });
+        setTypes(arr);
+    }
 
     return <div className={Style.searchform_container} >
         {loading && <Loading />}
+        <div className={Style.toggle_type} >
+            <div className={Style.toggle_button} >
+                {
+                    tripTypes.map((a, i) => {
+                        return <div onClick={() => toggleType(i)} style={{ boxShadow: a.active ? "inset 0px 0px 3px 2px rgba(0, 0, 0, 0.3)" : "" }} className={Style.toggle_btn} > <p>{a.name}</p> </div>
+                    })
+                }
+            </div>
+        </div>
         <div className={Style.searchForm} >
             <form onSubmit={handleSubmit} >
                 <div className={Style.input_container} >
-                    <input value={fromAirportValue && `${fromAirportValue.iata}, ${fromAirportValue.city}, ${fromAirportValue.country}`} onChange={(e) => handleFilter(e, "from")} type="search" placeholder="Origin" />
+                    <input value={fromAirportValue ? `${fromAirportValue.iata}, ${fromAirportValue.city}, ${fromAirportValue.country}` : ""} onChange={(e) => handleFilter(e, "from")} type="search" placeholder="Origin" />
                     {fromSuggestionVisible && <div ref={fromDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
@@ -165,7 +191,7 @@ const SearchForm = () => {
                     </div>}
                 </div>
                 <div className={Style.input_container} >
-                    <input value={toAirportValue && `${toAirportValue.iata}, ${toAirportValue.city}, ${toAirportValue.country}`} onChange={(e) => handleFilter(e, "to")} type="search" placeholder="Destination" />
+                    <input value={toAirportValue ? `${toAirportValue.iata}, ${toAirportValue.city}, ${toAirportValue.country}` : ""} onChange={(e) => handleFilter(e, "to")} type="search" placeholder="Destination" />
                     {toSuggestionVisible && <div ref={toDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
@@ -191,11 +217,11 @@ const SearchForm = () => {
                     </div>}
                 </div>
                 <div className={Style.input_container} >
-                    <input ref={fromDate} type="date" placeholder="Date" />
+                    <input ref={fromDate} type="date" />
                 </div>
-                <div className={Style.input_container} >
-                    <input ref={toDate} type="date" placeholder="Date" />
-                </div>
+                {selectedType === "Round Trip" && <div className={Style.input_container} >
+                    <input ref={toDate} type="date" />
+                </div>}
                 <div className={Style.action_container} >
                     <button type="submit" > Search </button>
                 </div>
