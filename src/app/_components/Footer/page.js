@@ -4,12 +4,12 @@ const Footer = () => {
     return <div className={Style.footer_container} >
         <div className={Style.footer} >
             <div className={Style.left_sec} >
-                <span>Travel with WishTrips</span>
-                <span>About WishTrips</span>
+                <span>Travel with SkyFly</span>
+                <span>About SkyFly</span>
                 <span>Legal</span>
                 <span>Travel Tools</span>
-                <span>Connect with WishTrips</span>
-                <span>WishTrips Reviews</span>
+                <span>Connect with SkyFly</span>
+                <span>SkyFly Reviews</span>
             </div>
             <div className={Style.right_sec} >
                 <div className={Style.additional_links} >
@@ -39,10 +39,10 @@ const Footer = () => {
                     <span>FAQs</span>
                 </div>
                 <div className={Style.additional_links} >
-                    <span><Image alt="WishTrips Facebook" src="/facebook (1).png" width={25} height={25} /></span>
-                    <span><Image alt="WishTrips LinkedIn" src="/linkedin.png" width={25} height={25} /></span>
-                    <span><Image alt="WishTrips Twitter" src="/twitter.png" width={25} height={25} /></span>
-                    <span><Image alt="WishTrips Instagram" src="/instagram.png" width={25} height={25} /></span>
+                    <span><Image alt="SkyFly Facebook" src="/facebook (1).png" width={25} height={25} /></span>
+                    <span><Image alt="SkyFly LinkedIn" src="/linkedin.png" width={25} height={25} /></span>
+                    <span><Image alt="SkyFly Twitter" src="/twitter.png" width={25} height={25} /></span>
+                    <span><Image alt="SkyFly Instagram" src="/instagram.png" width={25} height={25} /></span>
                 </div>
             </div>
         </div>

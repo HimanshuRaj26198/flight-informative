@@ -12,8 +12,8 @@ const AboutUs = () => {
         <main className={Style.main} >
             <div className={Style.container}>
                 <section className={Style.intro}>
-                    <h2>Welcome to WishTrips!</h2>
-                    <p>At WishTrips, our mission is to transform the way you search for flight tickets. Based in the bustling city of Las Vegas, we are a forward-thinking US-based company committed to delivering the best flight deals tailored just for you.</p>
+                    <h2>Welcome to SkyFly!</h2>
+                    <p>At SkyFly, our mission is to transform the way you search for flight tickets. Based in the bustling city of Las Vegas, we are a forward-thinking US-based company committed to delivering the best flight deals tailored just for you.</p>
                     <p>With a team of experienced data scientists at the helm, we use sophisticated algorithms and cutting-edge technology to analyze vast amounts of data. This allows us to provide you with unmatched pricing and travel options, ensuring your journey begins with a great deal.</p>
                 </section>
 
