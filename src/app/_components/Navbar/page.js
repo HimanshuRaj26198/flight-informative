@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className={Style.navbar} >
             <div className={Style.left_sec} >
                 <div className={Style.logo_container} >
-                    <h2>WishTrips</h2>
+                    <img style={{ width: "65px", height: "auto" }} src="/logo.png" />
                 </div>
             </div>
             <div className={Style.right_sec} >
