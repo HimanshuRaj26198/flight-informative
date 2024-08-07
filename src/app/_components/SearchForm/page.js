@@ -20,6 +20,7 @@ const SearchForm = () => {
     const [loading, setLoading] = useState(false);
     const [selectedType, setSelectedType] = useState("One-Way");
     const [tripTypes, setTypes] = useState([{ name: "One-Way", active: true }, { name: "Round Trip", active: false }])
+    const [today, setToday] = useState("");
 
 
     const handleSelection = (action, value) => {
@@ -80,7 +81,7 @@ const SearchForm = () => {
         //setting today Dtae
         let newDate = new Date();
         fromDate.current.value = newDate.toISOString().split('T')[0];
-        console.log(newDate, "Current Date");
+        setToday(newDate.toISOString().split('T')[0]);
 
 
 
@@ -217,10 +218,10 @@ const SearchForm = () => {
                     </div>}
                 </div>
                 <div className={Style.input_container} >
-                    <input ref={fromDate} type="date" />
+                    <input min={today} ref={fromDate} type="date" />
                 </div>
                 {selectedType === "Round Trip" && <div className={Style.input_container} >
-                    <input ref={toDate} type="date" />
+                    <input value={toDate} min={today} ref={toDate} type="date" />
                 </div>}
                 <div className={Style.action_container} >
                     <button type="submit" > Search </button>
