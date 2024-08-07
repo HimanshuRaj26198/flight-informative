@@ -167,7 +167,7 @@ const SearchForm = () => {
         <div className={Style.searchForm} >
             <form onSubmit={handleSubmit} >
                 <div className={Style.input_container} >
-                    <input value={fromAirportValue ? `${fromAirportValue.iata}, ${fromAirportValue.city}, ${fromAirportValue.country}` : ""} onChange={(e) => handleFilter(e, "from")} type="search" placeholder="Origin" />
+                    <input value={fromAirportValue && `${fromAirportValue.iata}, ${fromAirportValue.city}, ${fromAirportValue.country}`} onChange={(e) => handleFilter(e, "from")} type="search" placeholder="Origin" />
                     {fromSuggestionVisible && <div ref={fromDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
@@ -191,7 +191,7 @@ const SearchForm = () => {
                     </div>}
                 </div>
                 <div className={Style.input_container} >
-                    <input value={toAirportValue ? `${toAirportValue.iata}, ${toAirportValue.city}, ${toAirportValue.country}` : ""} onChange={(e) => handleFilter(e, "to")} type="search" placeholder="Destination" />
+                    <input value={toAirportValue && `${toAirportValue.iata}, ${toAirportValue.city}, ${toAirportValue.country}`} onChange={(e) => handleFilter(e, "to")} type="search" placeholder="Destination" />
                     {toSuggestionVisible && <div ref={toDivRef} className={Style.filtered_list_container} >
                         <ul className={Style.list_container}>
                             {
