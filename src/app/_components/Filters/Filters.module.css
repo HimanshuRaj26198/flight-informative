@@ -1,0 +1,33 @@
+.filter_parent {
+    background-color: rgb(255, 255, 255);
+    /* padding: 2%; */
+    width: 100%;
+}
+
+.filter_heading {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 1%;
+}
+
+.filter_box {
+    padding: 3% 6%;
+}
+
+.filter_box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter_box ul li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter_box ul li input {
+    width: 16px;
+    height: 16px;
+}

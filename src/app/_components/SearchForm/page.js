@@ -3,6 +3,7 @@ import Style from "./Searchorm.module.css";
 import AirportsList from "../../../../lib/data/airports.json";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Loading from "../LoadingComponent/page";
 
 const SearchForm = () => {
     const [filteredToAirports, setFilteredToAirports] = useState([]);
@@ -16,6 +17,7 @@ const SearchForm = () => {
     const fromDate = useRef("");
     const toDate = useRef("");
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
 
     const handleSelection = (action, value) => {
@@ -31,6 +33,7 @@ const SearchForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         let journeyDetail = {
             source: fromAirportValue,
             destination: toAirportValue,
@@ -134,6 +137,7 @@ const SearchForm = () => {
 
 
     return <div className={Style.searchform_container} >
+        {loading && <Loading />}
         <div className={Style.searchForm} >
             <form onSubmit={handleSubmit} >
                 <div className={Style.input_container} >
