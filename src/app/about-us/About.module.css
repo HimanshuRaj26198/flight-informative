@@ -69,3 +69,38 @@
 .link:hover {
     text-decoration: underline;
 }
+
+.address_container {
+    /* display: flex; */
+    margin-top: 5%;
+}
+
+.addresses {
+    display: flex;
+    padding: 3%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.address {
+    background-color: #eeeaea;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address p {
+    font-size: 19px;
+}
+
+.address:nth-child(1) {
+    flex: 1 1 45%;
+}
+
+.address:nth-child(2) {
+    flex: 1 1 45%;
+}
+
+
+@media screen and (max-width : 768px) {}

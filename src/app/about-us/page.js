@@ -56,6 +56,26 @@ const AboutUs = () => {
                     <h2>Get in Touch</h2>
                     <p>Have questions or need support? Our team is here to assist you. Feel free to <Link className={Style.link} href="/contact.html">contact us</Link> for any inquiries or assistance you may need.</p>
                 </section>
+
+                <section className={Style.address_container}>
+                    <h2>Our offices across the globe</h2>
+                    <div className={Style.addresses} >
+                        <div className={Style.address} >
+                            <div className={Style.flag} >
+                                <Image className={Style.flg_img} src={"/flag.png"} width={100} height={100} />
+                            </div>
+                            <p>   Building No. 43, 1st Floor, Andand Prime Building, near by Haldi ghati Gate, Sanganer, Pratap Nagar, Jaipur, Rajasthan, 302033
+                            </p>
+                        </div>
+                        <div className={Style.address} >
+                            <div className={Style.flag} >
+                                <Image className={Style.flag_img} src={"/united-states.png"} width={100} height={100} />
+
+                            </div>
+                            <p>12888 S Textas 6, Sugar Land, TX 77498, United States</p>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main></>
 }
