@@ -1,7 +1,42 @@
+"use client"
 import Link from "next/link";
 import Style from "./About.module.css"
 import Image from "next/image";
+import { useEffect } from "react";
 const AboutUs = () => {
+
+    useEffect(() => {
+        // Create the script element
+        const script = document.createElement('script');
+
+        // Set the async attribute
+        script.async = true;
+
+        // Set the script source (e.g., Google Ads)
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16665917801';
+
+        // Append the script to the document head
+        document.head.appendChild(script);
+
+        // Add the inline script for gtag configuration
+        const inlineScript = document.createElement('script');
+        inlineScript.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16665917801');
+    `;
+
+        // Append the inline script to the document head
+        document.head.appendChild(inlineScript);
+
+        // Cleanup: remove the scripts when the component is unmounted
+        return () => {
+            document.head.removeChild(script);
+            document.head.removeChild(inlineScript);
+        };
+    }, [])
+
     return <>
         <header className={Style.page_header} >
             <div className={Style.container}>

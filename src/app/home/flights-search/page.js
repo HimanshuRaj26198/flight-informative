@@ -76,6 +76,35 @@ const Flights = ({ params, searchParams }) => {
         }
     }
     useEffect(() => {
+        // Create the script element
+        const script = document.createElement('script');
+
+        // Set the async attribute
+        script.async = true;
+
+        // Set the script source (e.g., Google Ads)
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16665917801';
+
+        // Append the script to the document head
+        document.head.appendChild(script);
+
+        // Add the inline script for gtag configuration
+        const inlineScript = document.createElement('script');
+        inlineScript.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16665917801');
+    `;
+
+        // Append the inline script to the document head
+        document.head.appendChild(inlineScript);
+
+        // Cleanup: remove the scripts when the component is unmounted
+        return () => {
+            document.head.removeChild(script);
+            document.head.removeChild(inlineScript);
+        };
         try {
             fetch("https://test.api.amadeus.com/v2/shopping/flight-offers", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${searchParams.token}` }, body: JSON.stringify(query) }).then(ressponse => ressponse.json()).then(json => {
                 let newData = json.data.map(a => {
