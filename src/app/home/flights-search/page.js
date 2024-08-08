@@ -76,35 +76,46 @@ const Flights = ({ params, searchParams }) => {
         }
     }
     useEffect(() => {
-        // Create the script element
         const script = document.createElement('script');
+        const analyticsScript = document.createElement('script');
 
         // Set the async attribute
         script.async = true;
+        analyticsScript.async = true;
 
         // Set the script source (e.g., Google Ads)
         script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16665917801';
+        analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=G-SXSL1KRYT4"
 
         // Append the script to the document head
         document.head.appendChild(script);
+        document.head.appendChild(analyticsScript);
 
         // Add the inline script for gtag configuration
         const inlineScript = document.createElement('script');
+        const analyticsInlineScript = document.createElement('script');
+
         inlineScript.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-16665917801');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16665917801');
     `;
+
+        analyticsInlineScript.innerHTML = `
+             window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-SXSL1KRYT4');
+        `
 
         // Append the inline script to the document head
         document.head.appendChild(inlineScript);
+        document.head.appendChild(analyticsInlineScript);
 
         // Cleanup: remove the scripts when the component is unmounted
-        return () => {
-            document.head.removeChild(script);
-            document.head.removeChild(inlineScript);
-        };
+
         try {
             fetch("https://test.api.amadeus.com/v2/shopping/flight-offers", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${searchParams.token}` }, body: JSON.stringify(query) }).then(ressponse => ressponse.json()).then(json => {
                 let newData = json.data.map(a => {
@@ -124,6 +135,12 @@ const Flights = ({ params, searchParams }) => {
             console.log(err);
         };
 
+        return () => {
+            document.head.removeChild(script);
+            document.head.removeChild(inlineScript);
+            document.head.removeChild(analyticsScript);
+            document.head.removeChild(analyticsInlineScript)
+        };
         // applyFilter();
     }, []);
 
