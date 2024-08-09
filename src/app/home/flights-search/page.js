@@ -40,7 +40,7 @@ const Flights = ({ params, searchParams }) => {
     let [flightList, setFlightList] = useState([]);
     const [filterDisplay, setFilterDisplay] = useState(false);
     let query = {
-        "currencyCode": "INR",
+        "currencyCode": "USD",
         "originDestinations": [
             {
                 "id": "1",
@@ -260,7 +260,7 @@ const Flights = ({ params, searchParams }) => {
                                 <div className={`${Style.filter_box} ${Style.flex_container}`} >
                                     <input type="range" max={20000} min={0} value={priceRange} onChange={(e) => setPriceRange(e.target.value)} />
                                     <div className={Style.price_value_container} >
-                                        <p className={Style.small_text} >₹ 40000</p> <p className={Style.small_text} > ₹20000 </p>
+                                        <p className={Style.small_text} >$40000</p> <p className={Style.small_text} > $20000 </p>
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +297,7 @@ const Flights = ({ params, searchParams }) => {
                                                     {/* DATE {convertToLocalDate(b.segments[b.segments.length - 1].arrival.at)} */}
                                                 </div>
                                                 <div className={Style.price_info} >
-                                                    <strong>₹ {a.price.total.split(".")[0]}</strong>
+                                                    <strong>${a.price.total.split(".")[0]}</strong>
                                                     <p className={Style.small_text} > per adult </p>
                                                 </div>
                                             </div>
