@@ -4,6 +4,9 @@ import Navbar from "./_components/Navbar/page";
 import Head from "next/head";
 import Footer from "./_components/Footer/page";
 import Script from "next/script";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
+import PopUp from "./_components/Popup/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -40,9 +43,26 @@ export default function RootLayout({ children }) {
         />
       </Head>
       <body>
+        <div style={{ width: "100%" }} >
+          <PopUp />
+        </div>
+        <div className="contact_call_section" >
+          <div> <h2>Call: <a href="tel:+19725856351" >+1 (972) 585-6351</a></h2> </div>
+        </div>
         <Navbar />
         {children}
         <Footer />
+        <div className="main_info_ad" >
+          <div className="info_container" >
+            <div className="call_icon" >
+              <FontAwesomeIcon icon={faPhoneVolume} />
+            </div>
+            <div className="number_container" >
+              <p>Call & get unpublished flight deals.</p>
+              <h2><a href="tel:+19725856351" >+1 (972) 585-6351</a></h2>
+            </div>
+          </div>
+        </div>
       </body>
 
     </html>

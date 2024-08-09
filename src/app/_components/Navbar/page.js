@@ -40,6 +40,10 @@ const Navbar = () => {
                             <li className={Style.menu_option} > <Link href="/search-airports" >Search Airports</Link> </li>
                             <li className={Style.menu_option} > <Link href="/search-airlines" >Search Airlines</Link> </li>
                             <li className={Style.menu_option} > <Link href="/about-us" >About Us</Link> </li>
+                            <li><div className={Style.contact_call_section} >
+                                <p>Call 24/7 for our best deals</p>
+                                <div> <h2><a href="tel:+19725856351" >+1 (972) 585-6351</a></h2> </div>
+                            </div></li>
                         </ul>
                     </div>
                     <div className={Style.hamburger_container} >
@@ -57,6 +61,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 }
