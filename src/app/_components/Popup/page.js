@@ -5,7 +5,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 const PopUp = () => {
-    const [popupEnabled, setPopupEnabled] = useState(true);
+    const [popupEnabled, setPopupEnabled] = useState(false);
 
     useEffect(() => {
         setInterval(() => {
